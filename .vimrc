@@ -173,13 +173,10 @@
 " }
 
 " Vim UI {
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim")) 
-        color solarized                 " load a colorscheme
+    if filereadable(expand("~/.vim/bundle/vim-colors/colors/ir_black.vim")) 
+        color ir_black                 " load a colorscheme
     endif
-        let g:solarized_termtrans=1
-        let g:solarized_termcolors=256
-        let g:solarized_contrast="high"
-        let g:solarized_visibility="high"
+	
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
 
@@ -223,7 +220,7 @@
     set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
 
-" }
+"a }
 
 " Formatting {
     set nowrap                      " wrap long lines
@@ -535,8 +532,16 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " remove the toolbar
+		set guioptions+=g			" and everything else
+        set guioptions+=a
+        set guioptions-=t
+        set guioptions-=m
+        set guioptions-=L
+        set guioptions-=l
+        set guioptions-=r
+        set guioptions-=R
+        set guifont=Consolas:h10
         set lines=40                " 40 lines of text instead of 24,
-        set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
         if has('gui_macvim')
             set transparency=5          " Make the window slightly transparent
         endif
