@@ -87,14 +87,21 @@ to verify all good, run:
     Features: Largefile NTLM SSL SSPI libz
 
 
-#### Installing spf13-vim on Windows
+#### Installing pvishal/spf13-vim on Windows
 
-The easiest way is to download and run the spf13-vim-windows-install.cmd file.
+Navigate to the folder you want to store spf13-vim in. This could be a path anywhere on your computer
+
+```bash
+	git clone --recursive -b 3.0 git://github.com/pvishal/spf13-vim.git
+    spf13-vim-windows-install
+    vim +BundleInstall! +BundleClean +q
+```
+
 
 ## Updating to the latest version
 
 ```bash
-    cd $HOME/to/spf13-vim/
+    cd  to/spf13-vim/
     git pull
     vim +BundleInstall! +BundleClean +q
 ```
