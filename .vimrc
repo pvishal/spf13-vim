@@ -148,6 +148,7 @@
     syntax on                   " syntax highlighting
     set mouse=a                 " automatically enable mouse usage
     scriptencoding utf-8
+    set encoding=utf-8
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     " always switch to the current file directory.
 
@@ -176,7 +177,7 @@
     if filereadable(expand("~/.vim/bundle/vim-colors/colors/ir_black.vim")) 
         color ir_black                 " load a colorscheme
     endif
-	
+
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
 
@@ -191,14 +192,16 @@
 
     if has('statusline')
         set laststatus=2
+        let g:Powerline_symbols = 'compatible'
 
+        " Powerline takes care of the statusline; statements below are inconsequential
         " Broken down into easily includeable segments
-        set statusline=%<%f\    " Filename
-        set statusline+=%w%h%m%r " Options
-        set statusline+=%{fugitive#statusline()} "  Git Hotness
-        set statusline+=\ [%{&ff}/%Y]            " filetype
-        set statusline+=\ [%{getcwd()}]          " current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+        " set statusline=%<%f\    " Filename
+        " set statusline+=%w%h%m%r " Options
+        " set statusline+=%{fugitive#statusline()} "  Git Hotness
+        " set statusline+=\ [%{&ff}/%Y]            " filetype
+        " set statusline+=\ [%{getcwd()}]          " current dir
+        " set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif
 
     set backspace=indent,eol,start  " backspace for dummies
@@ -220,7 +223,7 @@
     set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
 
-"a }
+" }
 
 " Formatting {
     set nowrap                      " wrap long lines
@@ -532,7 +535,7 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " remove the toolbar
-		set guioptions+=g			" and everything else
+        set guioptions+=g           " and everything else
         set guioptions+=a
         set guioptions-=t
         set guioptions-=m
