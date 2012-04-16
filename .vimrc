@@ -157,7 +157,7 @@
     set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
     set virtualedit=onemore         " allow for cursor beyond last character
     set history=1000                " Store a ton of history (default is 20)
-    set spell                       " spell checking on
+    set nospell                     " spell checking off
     set hidden                      " allow buffer switching without saving
 
     " Setting up the directories {
@@ -544,7 +544,8 @@
         set guioptions-=r
         set guioptions-=R
         set guifont=Consolas:h10
-        set lines=40                " 40 lines of text instead of 24,
+        set lines=60                " 40 lines of text instead of 24,
+		set columns=115
         if has('gui_macvim')
             set transparency=5          " Make the window slightly transparent
         endif
