@@ -23,7 +23,7 @@
 
     " Windows Compatible {
         " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-        " across (heterogeneous) systems easier. 
+        " across (heterogeneous) systems easier.
         if has('win32') || has('win64')
           set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
         endif
@@ -42,7 +42,9 @@
         Bundle 'gmarik/vundle'
         Bundle 'MarcWeber/vim-addon-mw-utils'
         Bundle 'tomtom/tlib_vim'
-        Bundle 'mileszs/ack.vim'
+        if executable('ack')
+            Bundle 'mileszs/ack.vim'
+        endif
 
     " Use local bundles if available {
         if filereadable(expand("~/.vimrc.bundles.local"))
@@ -93,7 +95,9 @@
             Bundle 'tpope/vim-fugitive'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'godlygeek/tabular'
-            Bundle 'majutsushi/tagbar'
+            if executable('ctags')
+                Bundle 'majutsushi/tagbar'
+            endif
             Bundle 'Shougo/neocomplcache'
         endif
 
