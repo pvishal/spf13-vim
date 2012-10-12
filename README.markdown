@@ -36,7 +36,7 @@ The goal has always been to add functionality without changing all the features,
 
 ## Linux, \*nix, Mac OSX Installation
 
-The easiest way to install spf13-vim is to use our [automatic installer](http://j.mp/spf13-vim) by simply copying and pasting the following line into a terminal. This will install spf13-vim and backup your existing vim configuration. If you are upgrading from a prior version (before 3.0) this is also the recommended installation.
+The easiest way to install spf13-vim is to use our [automatic installer](http://j.mp/spf13-vim3) by simply copying and pasting the following line into a terminal. This will install spf13-vim and backup your existing vim configuration. If you are upgrading from a prior version (before 3.0) this is also the recommended installation.
 
 ```bash
 
@@ -99,13 +99,21 @@ Navigate to the folder you want to store spf13-vim in. This could be a path anyw
 
 
 ## Updating to the latest version
+The simpliest (and safest) way to update is to simply rerun the installer. It will completely and non destructively upgrade to the latest version. 
+
+```bash
+
+    curl http://j.mp/spf13-vim3 -L -o - | sh
+
+```
+
+Alternatively you can manually perform the following steps. If anything has changed with the structure of the configuration you will need to create the appropriate symlinks.
 
 ```bash
     cd  to/spf13-vim/
     git pull
     vim +BundleInstall! +BundleClean +q
 ```
-
 
 ### Fork me on GitHub
 
@@ -143,6 +151,28 @@ For example, to override the default color schemes:
     echo colorscheme ir_black  >> ~/.vimrc.local
 ```
 
+### Fork Customization
+
+There is an additional tier of customization available to those who want to maintain a
+fork of spf13-vim specialized for a particular group. These users can create `.vimrc.fork`
+and `.vimrc.bundles.fork` files in the root of their fork.  The load order for the configuration is:
+
+1. `.vimrc.bundles.local` - local user bundle configuration
+2. `.vimrc.bundles.fork` - fork bundle configuration
+3. `.vimrc.bundles` - spf13-vim bundle configuration
+4. `.vimrc` - spf13-vim vim configuration 
+5. `.vimrc.fork` - fork vim configuration
+6. `.vimrc.local` - local user configuration 
+
+See `.vimrc.bundles` for specifics on what options can be set to override bundle configuration. See `.vimrc` for specifics 
+on what options can be overridden. Most vim configuration options should be set in your `.vimrc.fork` file, bundle configuration
+needs to be set in your `.vimrc.bundles.fork` file.
+
+You may also want to update your `README.markdown` file so that the `bootstrap.sh` link points to your repository and your `bootstrap.sh`
+file to pull down your fork.
+
+For an example of a fork of spf13-vim that provides customization in this manner see [taxilian's fork](https://github.com/taxilian/spf13-vim).
+
 # Plugins
 
 spf13-vim contains a curated set of popular vim plugins, colors, snippets and syntaxes. Great care has been made to ensure that these plugins play well together and have optimal configuration.
@@ -164,7 +194,7 @@ Here are a few of the plugins:
 
 NERDTree is a file explorer plugin that provides "project drawer"
 functionality to your vim editing.  You can learn more about it with
-:help NERDTree or checkout my post on [NERDTree](http://spf13.com/post/vim-plugins-nerd-commenter).
+:help NERDTree.
 
 **QuickStart** Launch using `<Leader>e`.
 
@@ -205,7 +235,7 @@ There's a lot more, check it out at `:help surround`
 ## [NERDCommenter]
 
 NERDCommenter allows you to wrangle your code comments, regardless of
-filetype. View `help :NERDCommenter` for all the details.
+filetype. View `help :NERDCommenter` or checkout my post on [NERDCommenter](http://spf13.com/post/vim-plugins-nerd-commenter).
 
 **QuickStart** Toggle comments using `<Leader>c<space>` in Visual or Normal mode.
 

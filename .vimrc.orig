@@ -59,9 +59,60 @@
             source ~/.vimrc.bundles.local
         endif
     " }
+<<<<<<< HEAD
+
+    " In your .vimrc.bundles.local file"
+    " list only the plugin groups you will use
+    if !exists('g:spf13_bundle_groups')
+        let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc']
+    endif
+
+    " To override all the included bundles, put 
+    " g:override_spf13_bundles = 1 
+    " in your .vimrc.bundles.local file"
+    if !exists("g:override_spf13_bundles")
+
+    " General
+        if count(g:spf13_bundle_groups, 'general')
+            Bundle 'scrooloose/nerdtree'
+            Bundle 'altercation/vim-colors-solarized'
+            Bundle 'spf13/vim-colors'
+            Bundle 'tpope/vim-surround'
+            Bundle 'AutoClose'
+            Bundle 'kien/ctrlp.vim'
+            Bundle 'vim-scripts/sessionman.vim'
+            Bundle 'matchit.zip'
+            Bundle 'Lokaltog/vim-powerline'
+            Bundle 'Lokaltog/vim-easymotion'
+            Bundle 'godlygeek/csapprox'
+            Bundle 'jistr/vim-nerdtree-tabs'
+            Bundle 'flazz/vim-colorschemes'
+            Bundle 'corntrace/bufexplorer'
+        endif
+
+    " General Programming
+        if count(g:spf13_bundle_groups, 'programming')
+            " Pick one of the checksyntax, jslint, or syntastic
+            Bundle 'scrooloose/syntastic'
+            Bundle 'garbas/vim-snipmate'
+            Bundle 'spf13/snipmate-snippets'
+            " Source support_function.vim to support snipmate-snippets.
+            if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
+                source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
+            endif
+
+            Bundle 'tpope/vim-fugitive'
+            Bundle 'scrooloose/nerdcommenter'
+            Bundle 'godlygeek/tabular'
+            if executable('ctags')
+                Bundle 'majutsushi/tagbar'
+            endif
+            Bundle 'Shougo/neocomplcache'
+=======
     " Use fork bundles if available {
         if filereadable(expand("~/.vimrc.bundles.fork"))
             source ~/.vimrc.bundles.fork
+>>>>>>> upstream/3.0
         endif
     " }
     " Use bundles config {
@@ -80,6 +131,11 @@
     syntax on                   " syntax highlighting
     set mouse=a                 " automatically enable mouse usage
     scriptencoding utf-8
+<<<<<<< HEAD
+    set encoding=utf-8
+    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    " always switch to the current file directory.
+=======
 
     " Most prefer to automatically switch to the current file directory when
     " a new buffer is opened; to prevent this behavior, add
@@ -88,6 +144,7 @@
         autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
         " always switch to the current file directory.
     endif
+>>>>>>> upstream/3.0
 
     " set autowrite                  " automatically write a file when leaving a modified buffer
     set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
@@ -117,10 +174,20 @@
 " }
 
 " Vim UI {
+<<<<<<< HEAD
     if filereadable(expand("~/.vim/bundle/vim-colors/colors/ir_black.vim")) 
         color ir_black                 " load a colorscheme
     endif
 
+=======
+    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+        let g:solarized_termcolors=256
+        color solarized                 " load a colorscheme
+    endif
+        let g:solarized_termtrans=1
+        let g:solarized_contrast="high"
+        let g:solarized_visibility="high"
+>>>>>>> upstream/3.0
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
 
@@ -179,7 +246,12 @@
     set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
     " Remove trailing whitespaces and ^M chars
+<<<<<<< HEAD
     autocmd FileType c,cpp,java,php,javascript,python,twig,vhdl,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+=======
+    autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+>>>>>>> upstream/3.0
 " }
 
 " Key (re)Mappings {
@@ -458,11 +530,15 @@
         inoremap <expr><CR>    neocomplcache#complete_common_string()
 
 
-        " <CR>: close popup
+        " <CR>: close popup 
         " <s-CR>: close popup and save indent.
         inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup()"\<CR>" : "\<CR>"
         inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+<<<<<<< HEAD
+        inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup() "\<CR>" : "\<CR>" 
+=======
 
+>>>>>>> upstream/3.0
         " <TAB>: completion.
         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
         inoremap <expr><s-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
@@ -525,6 +601,7 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " remove the toolbar
+<<<<<<< HEAD
         set guioptions+=g           " and everything else
         set guioptions+=a
         set guioptions-=t
@@ -536,6 +613,14 @@
         set guifont=Consolas:h10
         set lines=60                " 40 lines of text instead of 24,
 		set columns=115
+=======
+        set lines=40                " 40 lines of text instead of 24,
+        if has("gui_gtk2")
+            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
+        else
+            set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+        endif
+>>>>>>> upstream/3.0
         if has('gui_macvim')
             set transparency=5          " Make the window slightly transparent
         endif
