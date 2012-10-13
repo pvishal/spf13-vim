@@ -1,0 +1,14 @@
+" Modeline and Notes {
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" }
+
+
+" Bundles {
+
+    " Set local bundles. Select only the groups that will be used
+    if !exists('g:spf13_bundle_groups')
+        let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'python', 'html', 'misc']
+    endif
+
+
+

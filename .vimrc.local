@@ -1,0 +1,132 @@
+" Modeline and Notes {
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+
+" }
+
+" General {
+
+    set encoding=utf-8
+    set nospell                     " spell checking off
+" }
+
+
+" Vim UI {
+    if filereadable(expand("~/.vim/bundle/vim-colors/colors/ir_black.vim")) 
+        color ir_black                 " load a colorscheme
+    endif
+    
+    if has('statusline')
+            let g:Powerline_symbols = 'compatible'
+    endif
+" }
+
+" Formatting {
+    "Add VDHL to autocmd
+    autocmd FileType c,cpp,java,php,javascript,python,twig,vhdl,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+" }
+
+" Plugins {
+
+    " PIV {
+    
+    " }
+
+    " Misc {
+    
+    " }
+
+    " OmniComplete {
+
+    " }
+
+    " Ctags {
+
+    " }
+
+    " AutoCloseTag {
+
+    " }
+
+    " SnipMate {
+
+    " }
+
+    " NerdTree {
+        let g:nerdtree_tabs_open_on_gui_startup=1       " Show nerdtree tab at startup
+    " }
+
+    " Tabularize {
+     " }
+
+     " Session List {
+     " }
+
+     " Buffer explorer {
+        
+     " }
+
+     " PyMode {
+     
+     " }
+
+     " ctrlp {
+        let g:ctrlp_working_path_mode = 2
+        nnoremap <silent> <D-t> :CtrlP<CR>
+        nnoremap <silent> <D-r> :CtrlPMRU<CR>
+        let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$\|\.dll$' }
+     "}
+
+     " TagBar {
+     "}
+
+     " PythonMode {
+     " Disable if python support not present
+        if !has('python')
+           
+        endif
+     " }
+
+     " Fugitive {
+        
+     "}
+
+     " neocomplcache {
+        
+     " }
+
+     " UndoTree {
+     " }
+
+     " indent_guides {
+        
+     " }
+
+" }
+
+" GUI Settings {
+    " GVIM- (here instead of .gvimrc)
+    if has('gui_running')
+        set guioptions-=T           " remove the toolbar
+        set guioptions+=g           " and everything else
+        set guioptions+=a
+        set guioptions-=t
+        set guioptions-=m
+        set guioptions-=L
+        set guioptions-=l
+        set guioptions-=r
+        set guioptions-=R
+        set guifont=Consolas:h10
+        set lines=60                " 40 lines of text instead of 24,
+		set columns=115
+        
+    else
+        
+    endif
+" }
+
+" Functions {
+
+" }
+
