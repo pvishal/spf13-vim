@@ -7,7 +7,7 @@
         |___/ .__/|_| |_|____/        \_/  |_|_| |_| |_|
             |_|
 
-spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacVim]. Visit [spf13-vim](https://github.com/spf13/spf13-vim) for more. This is a fork of spf13-vim that with the following customizations. 
+spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacVim](http://code.google.com/p/macvim/). Visit [spf13-vim](https://github.com/spf13/spf13-vim) for more. This is a fork of spf13-vim that with the following customizations. 
 
  * Uses the ir_black colour scheme
  * Nerdtree tab are open at startup
@@ -15,7 +15,7 @@ spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacV
 
 These customizations have been implemented only in the .local files
 
-![spf13-vim image][spf13-vim-img]
+![spf13-vim image][img/spf13-vim-img]
  
 ## Installation
 

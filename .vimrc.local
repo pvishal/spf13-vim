@@ -14,7 +14,7 @@
     if filereadable(expand("~/.vim/bundle/vim-colors/colors/ir_black.vim")) 
         color ir_black                 " load a colorscheme
     endif
-    
+
     if has('statusline')
             let g:Powerline_symbols = 'compatible'
     endif
@@ -28,27 +28,21 @@
 " Plugins {
 
     " PIV {
-    
     " }
 
     " Misc {
-    
     " }
 
     " OmniComplete {
-
     " }
 
     " Ctags {
-
     " }
 
     " AutoCloseTag {
-
     " }
 
     " SnipMate {
-
     " }
 
     " NerdTree {
@@ -62,11 +56,9 @@
      " }
 
      " Buffer explorer {
-        
      " }
 
      " PyMode {
-     
      " }
 
      " ctrlp {
@@ -84,23 +76,20 @@
      " PythonMode {
      " Disable if python support not present
         if !has('python')
-           
+
         endif
      " }
 
      " Fugitive {
-        
      "}
 
      " neocomplcache {
-        
      " }
 
      " UndoTree {
      " }
 
      " indent_guides {
-        
      " }
 
 " }
@@ -119,10 +108,9 @@
         set guioptions-=R
         set guifont=Consolas:h10
         set lines=60                " 40 lines of text instead of 24,
-		set columns=115
-        
+        set columns=115
     else
-        
+
     endif
 " }
 
