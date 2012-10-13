@@ -15,7 +15,7 @@ spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacV
 
 These customizations have been implemented only in the .local files
 
-![spf13-vim image][img/spf13-vim-img]
+![spf13-vim image](https://raw.github.com/pvishal/spf13-vim/3.0/img/spf13-vim-img.png)
  
 ## Installation
 
